@@ -6,14 +6,79 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		6F00317D2FA92B4200470030 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F00317C2FA92B4100470030 /* WidgetKit.framework */; };
+		6F00317F2FA92B4200470030 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F00317E2FA92B4200470030 /* SwiftUI.framework */; };
+		6F00318A2FA92B4400470030 /* ModafinilWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 6F00317A2FA92B4100470030 /* ModafinilWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6F0031882FA92B4400470030 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6F0030E92FA9156200470030 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F0031792FA92B4100470030;
+			remoteInfo = ModafinilWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6F00318F2FA92B4400470030 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				6F00318A2FA92B4400470030 /* ModafinilWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		6F0030F12FA9156200470030 /* modafinil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = modafinil.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F00317A2FA92B4100470030 /* ModafinilWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ModafinilWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F00317C2FA92B4100470030 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		6F00317E2FA92B4200470030 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		6F0031902FA92BC500470030 /* ModafinilWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ModafinilWidgetExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		6F00318B2FA92B4400470030 /* Exceptions for "ModafinilWidget" folder in "ModafinilWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 6F0031792FA92B4100470030 /* ModafinilWidgetExtension */;
+		};
+		6F0031922FA92D3B00470030 /* Exceptions for "modafinil" folder in "ModafinilWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Design/Colors.swift,
+				Design/Typography.swift,
+				State/Duration.swift,
+				State/SharedState.swift,
+			);
+			target = 6F0031792FA92B4100470030 /* ModafinilWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		6F0030F32FA9156200470030 /* modafinil */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				6F0031922FA92D3B00470030 /* Exceptions for "modafinil" folder in "ModafinilWidgetExtension" target */,
+			);
 			path = modafinil;
+			sourceTree = "<group>";
+		};
+		6F0031802FA92B4200470030 /* ModafinilWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				6F00318B2FA92B4400470030 /* Exceptions for "ModafinilWidget" folder in "ModafinilWidgetExtension" target */,
+			);
+			path = ModafinilWidget;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -26,13 +91,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6F0031772FA92B4100470030 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F00317F2FA92B4200470030 /* SwiftUI.framework in Frameworks */,
+				6F00317D2FA92B4200470030 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		6F0030E82FA9156200470030 = {
 			isa = PBXGroup;
 			children = (
+				6F0031902FA92BC500470030 /* ModafinilWidgetExtension.entitlements */,
 				6F0030F32FA9156200470030 /* modafinil */,
+				6F0031802FA92B4200470030 /* ModafinilWidget */,
+				6F00317B2FA92B4100470030 /* Frameworks */,
 				6F0030F22FA9156200470030 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,8 +118,18 @@
 			isa = PBXGroup;
 			children = (
 				6F0030F12FA9156200470030 /* modafinil.app */,
+				6F00317A2FA92B4100470030 /* ModafinilWidgetExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		6F00317B2FA92B4100470030 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6F00317C2FA92B4100470030 /* WidgetKit.framework */,
+				6F00317E2FA92B4200470030 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -55,10 +142,12 @@
 				6F0030ED2FA9156200470030 /* Sources */,
 				6F0030EE2FA9156200470030 /* Frameworks */,
 				6F0030EF2FA9156200470030 /* Resources */,
+				6F00318F2FA92B4400470030 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				6F0031892FA92B4400470030 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				6F0030F32FA9156200470030 /* modafinil */,
@@ -69,6 +158,28 @@
 			productName = modafinil;
 			productReference = 6F0030F12FA9156200470030 /* modafinil.app */;
 			productType = "com.apple.product-type.application";
+		};
+		6F0031792FA92B4100470030 /* ModafinilWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6F00318C2FA92B4400470030 /* Build configuration list for PBXNativeTarget "ModafinilWidgetExtension" */;
+			buildPhases = (
+				6F0031762FA92B4100470030 /* Sources */,
+				6F0031772FA92B4100470030 /* Frameworks */,
+				6F0031782FA92B4100470030 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				6F0031802FA92B4200470030 /* ModafinilWidget */,
+			);
+			name = ModafinilWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = ModafinilWidgetExtension;
+			productReference = 6F00317A2FA92B4100470030 /* ModafinilWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -81,6 +192,9 @@
 				LastUpgradeCheck = 2640;
 				TargetAttributes = {
 					6F0030F02FA9156200470030 = {
+						CreatedOnToolsVersion = 26.4.1;
+					};
+					6F0031792FA92B4100470030 = {
 						CreatedOnToolsVersion = 26.4.1;
 					};
 				};
@@ -100,12 +214,20 @@
 			projectRoot = "";
 			targets = (
 				6F0030F02FA9156200470030 /* modafinil */,
+				6F0031792FA92B4100470030 /* ModafinilWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6F0030EF2FA9156200470030 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F0031782FA92B4100470030 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +244,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6F0031762FA92B4100470030 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6F0031892FA92B4400470030 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6F0031792FA92B4100470030 /* ModafinilWidgetExtension */;
+			targetProxy = 6F0031882FA92B4400470030 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		6F0030FA2FA9156400470030 /* Debug */ = {
@@ -311,6 +448,74 @@
 			};
 			name = Release;
 		};
+		6F00318D2FA92B4400470030 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = ModafinilWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ACRWDDY5SR;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ModafinilWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ModafinilWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.patrick.modafinil.ModafinilWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		6F00318E2FA92B4400470030 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = ModafinilWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ACRWDDY5SR;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ModafinilWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ModafinilWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.patrick.modafinil.ModafinilWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -328,6 +533,15 @@
 			buildConfigurations = (
 				6F0030FD2FA9156400470030 /* Debug */,
 				6F0030FE2FA9156400470030 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6F00318C2FA92B4400470030 /* Build configuration list for PBXNativeTarget "ModafinilWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F00318D2FA92B4400470030 /* Debug */,
+				6F00318E2FA92B4400470030 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
