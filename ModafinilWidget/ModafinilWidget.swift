@@ -1,15 +1,19 @@
 import WidgetKit
 import SwiftUI
+import AppIntents
 
 struct ModafinilWidget: Widget {
     let kind: String = "ModafinilWidget"
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            ModafinilWidgetEntryView(entry: entry)
-                .containerBackground(for: .widget) {
-                    WidgetBackground(isWired: entry.isWired)
-                }
+            Button(intent: ToggleWiredIntent()) {
+                ModafinilWidgetEntryView(entry: entry)
+            }
+            .buttonStyle(.plain)
+            .containerBackground(for: .widget) {
+                WidgetBackground(isWired: entry.isWired)
+            }
         }
         .configurationDisplayName("Modafinil")
         .description("Keep your Mac awake.")
