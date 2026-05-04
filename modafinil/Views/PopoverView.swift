@@ -1,17 +1,17 @@
 import SwiftUI
-import AppKit
 
 struct PopoverView: View {
     @Environment(AppState.self) private var appState
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 14) {
-            Text(appState.isWired ? "Wired" : "Off")
-                .font(.modStatus)
-                .tracking(-0.5)
-            Button("Quit Modafinil") {
-                NSApplication.shared.terminate(nil)
-            }
+        VStack(spacing: 14) {
+            StatusHeader(isWired: appState.isWired)
+            HeroDisplay()
+            DurationPills()
+            PrimaryButton()
+            Divider()
+                .opacity(0.08)
+            FooterRow()
         }
         .padding(16)
         .frame(width: 280)
