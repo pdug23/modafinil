@@ -11,6 +11,7 @@ struct ModafinilApp: App {
                 .environment(appDelegate.appState)
         } label: {
             Image(systemName: appDelegate.appState.isWired ? "pills.fill" : "pills")
+                .foregroundStyle(appDelegate.appState.isWired ? AnyShapeStyle(Color.modAccent) : AnyShapeStyle(.foreground))
         }
         .menuBarExtraStyle(.window)
     }
