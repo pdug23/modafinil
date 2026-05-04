@@ -1,6 +1,7 @@
 import Foundation
 import Observation
 import AppKit
+import WidgetKit
 
 @Observable
 final class AppState {
@@ -28,6 +29,7 @@ final class AppState {
         caffeinate.didTerminate = { [weak self] in
             self?.handleProcessExit()
         }
+        syncShared()
     }
 
     func toggle() {
@@ -53,6 +55,7 @@ final class AppState {
                 remainingSeconds = nil
                 stopTickTimer()
             }
+            syncShared()
             haptic()
         } catch {
             clearState()
@@ -65,12 +68,9 @@ final class AppState {
         haptic()
     }
 
-    private func haptic() {
-        NSHapticFeedbackManager.defaultPerformer.perform(.alignment, performanceTime: .now)
-    }
-
     func stopForTermination() {
         caffeinate.stop()
+        clearState()
     }
 
     private func handleProcessExit() {
@@ -83,6 +83,16 @@ final class AppState {
         expiresAt = nil
         remainingSeconds = nil
         stopTickTimer()
+        syncShared()
+    }
+
+    private func syncShared() {
+        SharedState.write(isWired: isWired, duration: currentDuration, expiresAt: expiresAt)
+        WidgetCenter.shared.reloadAllTimelines()
+    }
+
+    private func haptic() {
+        NSHapticFeedbackManager.defaultPerformer.perform(.alignment, performanceTime: .now)
     }
 
     private func tick() {
