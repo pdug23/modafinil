@@ -7,18 +7,12 @@ struct ModafinilApp: App {
 
     var body: some Scene {
         MenuBarExtra {
-            Button(appDelegate.appState.isWired ? "Wired" : "Off") {
-                appDelegate.appState.toggle()
-            }
-            Divider()
-            Button("Quit Modafinil") {
-                NSApplication.shared.terminate(nil)
-            }
-            .keyboardShortcut("q")
+            PopoverView()
+                .environment(appDelegate.appState)
         } label: {
             Image(systemName: appDelegate.appState.isWired ? "pills.fill" : "pills")
         }
-        .menuBarExtraStyle(.menu)
+        .menuBarExtraStyle(.window)
     }
 }
 
