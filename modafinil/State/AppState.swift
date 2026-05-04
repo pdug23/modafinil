@@ -1,5 +1,6 @@
 import Foundation
 import Observation
+import AppKit
 
 @Observable
 final class AppState {
@@ -52,6 +53,7 @@ final class AppState {
                 remainingSeconds = nil
                 stopTickTimer()
             }
+            haptic()
         } catch {
             clearState()
         }
@@ -60,6 +62,11 @@ final class AppState {
     func deactivate() {
         caffeinate.stop()
         clearState()
+        haptic()
+    }
+
+    private func haptic() {
+        NSHapticFeedbackManager.defaultPerformer.perform(.alignment, performanceTime: .now)
     }
 
     func stopForTermination() {

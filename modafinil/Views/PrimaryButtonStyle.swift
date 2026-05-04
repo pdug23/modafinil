@@ -24,6 +24,7 @@ struct PrimaryButtonStyle: ButtonStyle {
                 )
                 .scaleEffect(configuration.isPressed ? 0.99 : 1.0)
                 .animation(.modSubtle, value: configuration.isPressed)
+                .animation(.modSubtle, value: isWired)
                 .onHover { isHovering = $0 }
         }
 

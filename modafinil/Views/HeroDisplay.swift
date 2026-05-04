@@ -2,16 +2,36 @@ import SwiftUI
 
 struct HeroDisplay: View {
     @Environment(AppState.self) private var appState
+    @State private var breathing = false
 
     var body: some View {
         VStack(spacing: 12) {
-            glyph
-                .frame(height: 44)
+            ZStack {
+                glyph
+                    .id(glyphID)
+                    .transition(.scale(scale: 0.7).combined(with: .opacity))
+            }
+            .frame(height: 44)
+            .animation(.modSpring, value: glyphID)
+
             Text(caption)
                 .font(.modCaption)
                 .foregroundStyle(.secondary)
+                .id(caption)
+                .transition(.opacity)
+                .animation(.modSubtle, value: caption)
         }
         .frame(maxWidth: .infinity)
+        .onAppear {
+            withAnimation(.modBreathe) {
+                breathing = true
+            }
+        }
+    }
+
+    private var glyphID: String {
+        if !appState.isWired { return "off" }
+        return appState.remainingSeconds == nil ? "infinite" : "timed"
     }
 
     @ViewBuilder
@@ -25,6 +45,7 @@ struct HeroDisplay: View {
                 Text("∞")
                     .font(.modHero)
                     .foregroundStyle(Color.modAccent)
+                    .scaleEffect(breathing ? 1.03 : 1.0)
             }
         } else {
             Image(systemName: "moon")
