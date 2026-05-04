@@ -6,11 +6,15 @@ final class CaffeinateManager {
 
     var isRunning: Bool { process?.isRunning ?? false }
 
-    func start() throws {
+    func start(duration: Duration) throws {
         stop()
         let p = Process()
         p.executableURL = URL(fileURLWithPath: "/usr/bin/caffeinate")
-        p.arguments = ["-d", "-i", "-s"]
+        var args = ["-d", "-i", "-s"]
+        if let seconds = duration.seconds {
+            args.append(contentsOf: ["-t", String(seconds)])
+        }
+        p.arguments = args
         p.terminationHandler = { [weak self] _ in
             Task { @MainActor in
                 self?.process = nil
