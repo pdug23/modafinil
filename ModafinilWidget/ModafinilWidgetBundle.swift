@@ -1,10 +1,3 @@
-//
-//  ModafinilWidgetBundle.swift
-//  ModafinilWidget
-//
-//  Created by Patrick Duggan on 04/05/2026.
-//
-
 import WidgetKit
 import SwiftUI
 

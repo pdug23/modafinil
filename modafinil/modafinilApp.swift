@@ -19,14 +19,8 @@ struct ModafinilApp: App {
 
 final class AppDelegate: NSObject, NSApplicationDelegate {
     let appState = AppState()
-    private lazy var intentBridge = IntentBridge(appState: appState)
-
-    func applicationDidFinishLaunching(_ notification: Notification) {
-        intentBridge.start()
-    }
 
     func applicationWillTerminate(_ notification: Notification) {
-        intentBridge.stop()
         appState.stopForTermination()
     }
 }

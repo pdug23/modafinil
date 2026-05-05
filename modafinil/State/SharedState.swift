@@ -7,7 +7,6 @@ enum SharedState {
         static let isWired = "isWired"
         static let expiresAtTimestamp = "expiresAtTimestamp"
         static let durationLabel = "durationLabel"
-        static let pendingIntent = "pendingIntent"
         static let lastUpdated = "lastUpdated"
     }
 
@@ -51,18 +50,5 @@ enum SharedState {
             return Duration(storageLabel: label)
         }()
         return Snapshot(isWired: isWired, expiresAt: expiresAt, duration: duration)
-    }
-
-    static func consumePendingIntent() -> String? {
-        guard let defaults else { return nil }
-        let intent = defaults.string(forKey: Key.pendingIntent)
-        if intent != nil {
-            defaults.removeObject(forKey: Key.pendingIntent)
-        }
-        return intent
-    }
-
-    static func setPendingIntent(_ intent: String) {
-        defaults?.set(intent, forKey: Key.pendingIntent)
     }
 }

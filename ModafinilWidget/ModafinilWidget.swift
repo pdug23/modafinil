@@ -1,23 +1,19 @@
 import WidgetKit
 import SwiftUI
-import AppIntents
 
 struct ModafinilWidget: Widget {
     let kind: String = "ModafinilWidget"
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            Button(intent: ToggleWiredIntent()) {
-                ModafinilWidgetEntryView(entry: entry)
-            }
-            .buttonStyle(.plain)
-            .containerBackground(for: .widget) {
-                WidgetBackground(isWired: entry.isWired)
-            }
+            ModafinilWidgetEntryView(entry: entry)
+                .containerBackground(for: .widget) {
+                    WidgetBackground(isWired: entry.isWired)
+                }
         }
         .configurationDisplayName("Modafinil")
         .description("Keep your Mac awake.")
-        .supportedFamilies([.systemSmall])
+        .supportedFamilies([.systemMedium])
     }
 }
 
@@ -56,18 +52,18 @@ struct ModafinilWidgetEntryView: View {
         if entry.isWired {
             if let expiresAt = entry.expiresAt {
                 Text(timerInterval: entry.date...expiresAt, countsDown: true)
-                    .font(.system(size: 22, weight: .medium, design: .rounded))
+                    .font(.system(size: 36, weight: .medium, design: .rounded))
                     .monospacedDigit()
                     .foregroundStyle(Color.white.opacity(0.95))
                     .multilineTextAlignment(.center)
             } else {
                 Text("∞")
-                    .font(.system(size: 44, weight: .medium, design: .rounded))
+                    .font(.system(size: 56, weight: .medium, design: .rounded))
                     .foregroundStyle(Color.white.opacity(0.95))
             }
         } else {
             Image(systemName: "moon")
-                .font(.system(size: 40, weight: .light))
+                .font(.system(size: 48, weight: .light))
                 .foregroundStyle(.tertiary)
         }
     }
@@ -82,7 +78,7 @@ private struct WidgetBackground: View {
                 colors: [Color.modAccent.opacity(0.85), Color.modAccentMuted.opacity(0.6)],
                 center: .center,
                 startRadius: 0,
-                endRadius: 110
+                endRadius: 200
             )
         } else {
             Color.modSurfaceDark
