@@ -6,9 +6,10 @@ struct PopoverView: View {
     var body: some View {
         VStack(spacing: 14) {
             StatusHeader(isWired: appState.isWired)
-            HeroDisplay()
             DurationPills()
-            PrimaryButton()
+            if appState.isWired {
+                PrimaryButton()
+            }
             Divider()
                 .opacity(0.08)
             FooterRow()

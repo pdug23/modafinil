@@ -11,7 +11,7 @@ struct StatusHeader: View {
                 .frame(width: 8, height: 8)
                 .shadow(color: .modAccent.opacity(isWired ? 0.6 : 0), radius: 6)
                 .animation(.modSpring, value: isWired)
-            Text(isWired ? "Wired" : "Off")
+            Text(isWired ? "wired" : "off")
                 .font(.modStatus)
                 .tracking(-0.5)
                 .id(isWired)

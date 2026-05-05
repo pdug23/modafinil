@@ -10,8 +10,8 @@ struct ModafinilApp: App {
             PopoverView()
                 .environment(appDelegate.appState)
         } label: {
-            Image(systemName: appDelegate.appState.isWired ? "pills.fill" : "pills")
-                .foregroundStyle(appDelegate.appState.isWired ? AnyShapeStyle(Color.modAccent) : AnyShapeStyle(.foreground))
+            Image(appDelegate.appState.isWired ? "MenuBarIconFilled" : "MenuBarIcon")
+                .opacity(appDelegate.appState.isWired ? 1.0 : 0.3)
         }
         .menuBarExtraStyle(.window)
 

@@ -5,10 +5,11 @@ struct PrimaryButton: View {
 
     var body: some View {
         Button {
-            appState.toggle()
+            appState.deactivate()
         } label: {
-            Text(appState.isWired ? "Go to Sleep" : "Stay Wired")
+            Text("off")
+                .tracking(-0.5)
         }
-        .buttonStyle(PrimaryButtonStyle(isWired: appState.isWired))
+        .buttonStyle(PrimaryButtonStyle(isWired: true))
     }
 }

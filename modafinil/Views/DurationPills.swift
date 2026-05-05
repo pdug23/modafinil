@@ -10,6 +10,7 @@ struct DurationPills: View {
                     handleTap(duration)
                 } label: {
                     Text(duration.shortLabel)
+                        .tracking(-0.5)
                 }
                 .buttonStyle(PillButtonStyle(isSelected: isSelected(duration)))
             }

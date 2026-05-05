@@ -21,8 +21,9 @@ struct FooterRow: View {
             Button {
                 NSApplication.shared.terminate(nil)
             } label: {
-                Text("Quit")
+                Text("quit")
                     .font(.modCaption)
+                    .tracking(-0.5)
                     .foregroundStyle(.tertiary)
             }
             .buttonStyle(.plain)
