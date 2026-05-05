@@ -14,6 +14,10 @@ struct ModafinilApp: App {
                 .foregroundStyle(appDelegate.appState.isWired ? AnyShapeStyle(Color.modAccent) : AnyShapeStyle(.foreground))
         }
         .menuBarExtraStyle(.window)
+
+        Settings {
+            SettingsView()
+        }
     }
 }
 

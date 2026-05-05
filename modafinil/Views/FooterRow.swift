@@ -2,12 +2,22 @@ import SwiftUI
 import AppKit
 
 struct FooterRow: View {
+    @Environment(\.openSettings) private var openSettings
+
     var body: some View {
         HStack {
-            Image(systemName: "gearshape")
-                .font(.system(size: 14))
-                .foregroundStyle(.tertiary)
+            Button {
+                NSApp.activate(ignoringOtherApps: true)
+                openSettings()
+            } label: {
+                Image(systemName: "gearshape")
+                    .font(.system(size: 14))
+                    .foregroundStyle(.tertiary)
+            }
+            .buttonStyle(.plain)
+
             Spacer()
+
             Button {
                 NSApplication.shared.terminate(nil)
             } label: {
